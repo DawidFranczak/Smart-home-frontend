@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 
 import styles from "./RegistrationForm.module.css"
+import iconPatch from "../../const/icons"
+import FormField from "../FormField/FormField"
 
 const  RegistrationForm = (props) => {
 
@@ -16,7 +18,7 @@ const  RegistrationForm = (props) => {
     });
 
     useEffect(()=>{
-    handleData(formData)
+        handleData(formData)
 
     },[formData, handleData]);
 
@@ -25,102 +27,62 @@ const  RegistrationForm = (props) => {
         setFormData({ ...formData, [name]: value });
     };
 
-    const handlePin = (event) => {
-        const currentPole = event.target;
-        const previousPole = currentPole.previousElementSibling;
-        const nextPole = currentPole.nextElementSibling;
-        const value = currentPole.value;
-        
-        if(value === "" ){
-            if(previousPole) previousPole.focus()
-            setFormData({ ...formData, pin: value });
-            return
-        }
-
-        setFormData({ ...formData, pin: formData.pin + value });
-        
-        if(nextPole) {
-            nextPole.value=null            
-            nextPole.focus();
-        }
-        currentPole.blur();
-    }
-
     return(
         <>
             <div className= {styles.container} >
-                <h1>Rejestracja</h1>
                 <form className= {styles.form}>
-                    <input className={styles.input}
+                    <FormField
+                        iconPatch={iconPatch.user}
+                        onChange={handleChange}
                         type="text"
-                        id="firstName"
                         name="firstName"
-                        value={formData.firstName}
-                        onChange={handleChange}
-                        placeholder='Imię'
+                        placeholder="Imię"
+                        pattern="^[A-Za-z]+$"
+                        viewBox="0 0 35 35"
                     />
-                    <input className={styles.input}
+                    <FormField
+                        iconPatch={iconPatch.user}
+                        onChange={handleChange}
                         type="text"
-                        id="lastName"
                         name="lastName"
-                        value={formData.lastName}
-                        onChange={handleChange}
-                        placeholder='Nazwisko'
+                        placeholder="Nazwisko"
+                        pattern="^[A-Za-z]+$"
+                        viewBox="0 0 35 35"
                     />
-                    <input className={styles.input}
-                        type="email"
-                        id="email"
-                        name="email"
-                        value={formData.email}
+                    <FormField
+                        iconPatch={iconPatch.email}
                         onChange={handleChange}
-                        placeholder='Email'
+                        type="email"
+                        name="email"
+                        placeholder="Email"
                     />
                     {props.errorData?.email && <p className={styles.errorMessage}>{props.errorData.email}</p>}
-                    <input className={styles.input}
-                        type="password"
-                        id="password"
-                        name="password"
-                        value={formData.password}
+                    <FormField
+                        iconPatch={iconPatch.password}
                         onChange={handleChange}
-                        placeholder='Hasło'
+                        type="password"
+                        name="password"
+                        placeholder="Hasło"
                     />
                     {props.errorData?.password && <p className={styles.errorMessage}>{props.errorData.password}</p>}
-                    <input className={styles.input}
-                        type="password"
-                        id="password2"
-                        name="password2"
-                        value={formData.password2}
+                    <FormField
+                        iconPatch={iconPatch.password}
                         onChange={handleChange}
-                        placeholder='Powtórz hasło'
+                        type="password"
+                        name="password2"
+                        placeholder="Powtórz hasło"
                     />
                     {props.errorData?.password2 && <p className={styles.errorMessage}>{props.errorData.password2}</p>}
-                    
-                    <div className={styles.pinContainer} >
-                        <input className={styles.pin}
-                            type="password"
-                            onChange={(event)=> handlePin(event)}
-                            placeholder='P'
-                            maxLength="1"
-                        />
-                         <input className={styles.pin}
-                            type="password"
-                            onChange={(event)=> handlePin(event)}
-                            placeholder='I'
-                            maxLength="1"
-                        />
-                         <input className={styles.pin}
-                            type="password"
-                            onChange={(event)=> handlePin(event)}
-                            placeholder='N'
-                            maxLength="1"
-                        />
-                         <input className={styles.pin}
-                            type="password"
-                            onChange={(event)=> handlePin(event)}
-                            maxLength="1"
-                        />
-                    </div>
-                    {props.errorData?.pin && <p className={styles.errorMessage}>{props.errorData.pin}</p>}
+                    <FormField
+                        iconPatch={iconPatch.password}
+                        onChange={handleChange}
+                        type="password"
+                        name="pin"
+                        placeholder="Podaj kod PIN"
+                        pattern="^[0-9]+$"
+                        inputMode="numeric"
+                    />
+                    {props.errorData?.pin && <p className={styles.errorMessage}>{props.errorData.pin}</p>} 
                 </form>
             </div>
         </>

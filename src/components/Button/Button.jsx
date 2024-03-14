@@ -4,9 +4,10 @@ function Button(props){
 
     return(
         <button
-        className={style.registartion}
+        className={style.button}
+        style={{ width:props.width}}
         onClick={props.submit}>
-            Rejestracja
+            {props.text}
         </button>
     );
 }
