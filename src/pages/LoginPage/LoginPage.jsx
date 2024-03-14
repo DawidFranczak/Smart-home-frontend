@@ -6,6 +6,8 @@ import LoginForm from "../../components/LoginForm/LoginForm";
 import Button from "../../components/Button/Button"
 import styles from "./LoginPage.module.css"
 
+import { Link } from "react-router-dom";
+
 const LoginPage = () =>{
     const [formData, setFormData] = useState(null);
 
@@ -39,9 +41,9 @@ const LoginPage = () =>{
             <LoginForm handleData = {handleData} errorData = {ERRORDATA}/>
             <div className={styles.buttonContainer}>
                 <Button submit={handleSubmit} width={"50%"} text="Zaloguj"/>
-                <Button width={"50%"} text="Rejestracja"/>
+                <Link style={{ width: '50%' }} className={styles.button} to="registration/">Rejestracja</Link>
             </div>
-            <Button width={"100%"} text="Zapomniałeś hasła?"/>
+            <Link className={styles.button} >Zapomniałeś hasła?</Link>
         </div>
     );
 }

@@ -1,4 +1,5 @@
 .container {
+    position: relative; 
     padding: 2em;
     width: 70vw;
     height: 80vh;
@@ -12,7 +13,7 @@
     transition: .4s ease-in-out;
 }
 .successfullyMessage{
-    font-size: 20px;
+    font-size: 16px;
     color: rgb(0, 194, 0)
 }
 
@@ -21,4 +22,12 @@
     margin: 1em;
     color: rgb(255, 255, 255);
     font-size: 2em;
+}
+
+.iconBack{
+    position: absolute;
+    top: 30px;
+    left: 30px; 
+    width: 30px; 
+    height: 30px;
 }

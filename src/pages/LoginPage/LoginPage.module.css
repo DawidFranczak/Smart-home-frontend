@@ -26,3 +26,23 @@
     display: flex;
     gap: 10px;
 }
+
+.button {
+    padding: 0.5em;
+    padding-left: 1.1em;
+    padding-right: 1.1em;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: default;
+    border: none;
+    outline: none;
+    transition: .4s ease-in-out;
+    background-color: #252525;
+    color: white;
+    font-size: 16px;
+  }
+  
+.button:hover {
+    background-color: black;
+    color: white;
+}
