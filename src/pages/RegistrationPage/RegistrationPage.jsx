@@ -1,18 +1,17 @@
-import { useState, useEffect } from "react";
-
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import endpoints from "../../const/endpoints";
-import icons from "../../const/icons"
 import RegistrationForm from "../../components/RegistrationForm/RegistrationForm";
+import BackArrow from "../../components/BackArrow/BackArrow";
 import Button from "../../components/Button/Button";
 
 import useFetchData from "../../hooks/useFetchData"; 
-
-import styles from "./RegistrationPage.module.css"
-import { Link } from "react-router-dom";
+import styles from "./RegistrationPage.module.css";
 
 const RegistrationPage = () => {
     const [formData, setFormData] = useState(null);
-
+    const navigate = useNavigate();
+    
     const URL = endpoints.registration;
     const OPTION = {
         method: 'POST',
@@ -20,11 +19,11 @@ const RegistrationPage = () => {
         body: JSON.stringify(formData)
     }
 
-    const {data, status, fetchData} = useFetchData(URL,OPTION);
+    const {data, status, fetchData} = useFetchData();
     const ERRORDATA = status === 400 ? data : null
         
     const handleSubmit = async () => {
-        await fetchData();
+        await fetchData(URL,OPTION);
     }
     
     const handleData = (data)=>{
@@ -33,17 +32,13 @@ const RegistrationPage = () => {
     }
     if(status===201){
         setTimeout(()=>{
-            window.location.replace(window.location.origin);
+            navigate('/');
         },2000)
     }
        
     return(
         <div className={styles.container}>
-            <Link className={styles.iconBack} to="/">
-                <svg viewBox="0 0 30 30">
-                    <path d={icons.backArrow} fill="#FFFFFF"></path>
-                </svg>
-            </Link>
+            <BackArrow path="/"/>
             <h1 className={styles.heading}>Zarejestruj</h1>
             <RegistrationForm handleData = {handleData} errorData = {ERRORDATA} />
             <Button width={"50vw"} text="Rejestracja" submit = {handleSubmit}/>

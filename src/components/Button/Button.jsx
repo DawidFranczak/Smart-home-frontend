@@ -1,13 +1,13 @@
 import style from "./Button.module.css"
 
-function Button(props){
+function Button({text, submit, width, className}){
 
     return(
         <button
-        className={style.button}
-        style={{ width:props.width}}
-        onClick={props.submit}>
-            {props.text}
+        className={`${style.button} ${className}`}
+        style={{ width:width}}
+        onClick={submit}>
+            {text}
         </button>
     );
 }

@@ -12,6 +12,12 @@
     border-radius: 25px;
     transition: .4s ease-in-out;
 }
+
+.container:hover {
+    transform: scale(1.05);
+    border: 1px solid black;
+}
+
 .successfullyMessage{
     font-size: 16px;
     color: rgb(0, 194, 0)
@@ -24,10 +30,9 @@
     font-size: 2em;
 }
 
-.iconBack{
-    position: absolute;
-    top: 30px;
-    left: 30px; 
-    width: 30px; 
-    height: 30px;
+@media( max-height:500px ) {
+    .iconBack{
+        display: none;
+    }
+    
 }

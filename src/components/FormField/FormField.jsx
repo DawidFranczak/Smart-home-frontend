@@ -1,7 +1,7 @@
 import styles from "./FormField.module.css"
 
 const FormField = (props) => {
-    const {iconPatch, onChange, type, name, placeholder,pattern, inputMode, viewBox = "0 0 16 16"} = props;
+    const {className, iconPatch, onChange, type, name, placeholder,pattern, inputMode, viewBox = "0 0 16 16"} = props;
     const regex = new RegExp(pattern)
     
     const handleChange = (event) =>{
@@ -15,7 +15,7 @@ const FormField = (props) => {
     };
     
     return(
-        <div className={styles.field}>
+        <div className={`${styles.field} ${className}`}>
             <svg className={styles.inputIcon} width="16" height="16" fill="currentColor" viewBox={viewBox}>
                 <path d={iconPatch}></path>
             </svg>

@@ -1,13 +1,14 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
-const useFetchData = (url, options) => {
+const useFetchData = () => {
   const [data, setData] = useState(null);
   const [status, setStatus] = useState(null);
-  const [isloading, setIsLoading] = useState(true);
+  const [isloading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const fetchData = async () => {
+  const fetchData = async (url, options) => {
     try {
+      setIsLoading(true)
       const response = await fetch(url,options);
       setStatus(response.status)
       const jsonData = await response.json();
@@ -21,7 +22,7 @@ const useFetchData = (url, options) => {
     }
   };
 
-  return { data, isloading, error, status, fetchData};
+  return { data, isloading, error, status, fetchData };
 };
 
 export default useFetchData;
