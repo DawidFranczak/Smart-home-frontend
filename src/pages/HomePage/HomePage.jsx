@@ -13,7 +13,7 @@ const HomePage = () =>{
         setTimeout(()=>{
             switch(PAGE){
                 case "aqua":
-                    navigate("/");
+                    navigate("/aquarium/all/");
                     break;
                 case "stairs":
                     navigate("/",);

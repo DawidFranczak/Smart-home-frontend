@@ -8,6 +8,8 @@ import LoginPage from './pages/LoginPage/LoginPage.jsx'
 import RegistrationPage from './pages/RegistrationPage/RegistrationPage.jsx'
 import HomePage from './pages/HomePage/HomePage.jsx'
 import AddingPage from './pages/AddingPage/AddingPage.jsx'
+import SelectAquariumPage from './pages/SelectAquariumPage/SelectAquariumPage.jsx'
+import AquariumPage from './pages/AquariumPage/AquariumPage.jsx'
 
 
 const router = createBrowserRouter([
@@ -26,6 +28,14 @@ const router = createBrowserRouter([
   {
     path: '/add/device/',
     element: <AddingPage/>
+  },
+  {
+    path:'/aquarium/all/',
+    element: <SelectAquariumPage/>
+  },
+  {
+    path:'/aquarium/:id/',
+    element: <AquariumPage/>
   }
 ]);
 
