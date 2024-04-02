@@ -1,0 +1,17 @@
+<div class="field">
+    <svg class="inputIcon" width="16" height="16" fill="currentColor" [attr.viewBox]="viewBox">
+        <path [attr.d]="iconPatch"></path>
+    </svg>
+    <input
+        class="inputField"
+        [type]="type"
+        [name]="name"
+        [placeholder]="placeholder"
+        [inputMode]="inputmode"
+        [attr.formControlName]="formControlName"
+        (input)="sendValueUp($event)"
+    />
+</div>
+@if (errorMessage){
+    <p class="errorMessage">{{errorMessage}}</p>
+}

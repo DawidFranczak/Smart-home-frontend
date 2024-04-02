@@ -1,0 +1,41 @@
+<div class="container">
+    <p class="heading">
+        Logowanie
+    </p>
+    <form [formGroup]="loginForm" class="form" (submit)="sendData()">
+        <div class="field">
+            <svg class="inputIcon" width="16" height="16" fill="currentColor" >
+                <path [attr.d]=icons.email></path>
+            </svg>
+            <input
+                class="inputField"
+                type="email"
+                name="email"
+                placeholder="Email"
+                formControlName="email"
+            />
+        </div>
+        <div class="field">
+            <svg class="inputIcon" width="16" height="16" fill="currentColor" >
+                <path [attr.d]=icons.password></path>
+            </svg>
+            <input
+                class="inputField"
+                type="password"
+                name="pin"
+                placeholder="Podaj kod pin"
+                inputmode="numeric"
+                formControlName="pin"
+                (input)="validatePinInput($event)"
+            />
+        </div>
+        @if (message) {
+            <p class="errorMessage">{{message}}</p>
+        }
+        <div class="buttonContainer">
+            <button class="button" type="submit"  > Zaloguj </button>
+            <a class="button" [routerLink]="[ '/sign-up' ]">Rejestracja</a>
+        </div>
+        <button class="button" >Zapomniałeś hasła?</button>
+    </form>
+</div>

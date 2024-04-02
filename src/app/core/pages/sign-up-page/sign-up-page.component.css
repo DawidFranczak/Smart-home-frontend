@@ -1,0 +1,70 @@
+.container {
+    position: relative; 
+    padding: 2em;
+    width: 70vw;
+    min-height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background-color: #171717;
+    border-radius: 25px;
+    transition: .4s ease-in-out;
+  }
+  
+.container:hover {
+    transform: scale(1.05);
+    border: 1px solid black;
+}
+  
+.heading {
+    text-align: center;
+    margin: 1em;
+    color: rgb(255, 255, 255);
+    font-size: 2em;
+}
+  
+.buttonContainer{
+    margin-top: 20px;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+.button {
+    margin-top: 1em;
+    padding: 0.5em;
+    padding-left: 1.1em;
+    padding-right: 1.1em;
+    border-radius: 5px;
+    text-decoration: none;
+    width: 80%;
+    cursor: default;
+    border: none;
+    outline: none;
+    transition: .4s ease-in-out;
+    background-color: #252525;
+    color: white;
+    font-size: 16px;
+}
+  
+.button:hover {
+    background-color: black;
+    color: white;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap:10px;
+}
+
+.successfulMessage{
+    font-size: 16px;
+    color: rgb(0, 194, 0)
+}

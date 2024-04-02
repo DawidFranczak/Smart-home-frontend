@@ -1,0 +1,8 @@
+<div class="container">
+    <app-back-arrow path="/home"/>
+    <nav class="container__nav">
+        @for(aquarium of allAquarium; track aquarium.id){
+            <a class="container__button" [routerLink]="[ '/aquarium/settings/',aquarium.id ]">{{aquarium.name}}</a>
+        }
+    </nav>
+</div>

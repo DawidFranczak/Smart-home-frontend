@@ -1,0 +1,16 @@
+<nav class="container">
+
+    <a [routerLink]="[ '' ]">
+        <svg viewBox="0 0 30 30" class="containerIcon settingsIcon">
+            <path [attr.d]="icons.settings" fill="#FFFFFF"></path>
+        </svg>
+    </a>
+    <a [routerLink]="[ '/add/device' ]">
+        <svg viewBox="0 0 30 30" class="containerIcon addIcon">
+            <path [attr.d]="icons.plus" fill="#FFFFFF"></path>
+        </svg>
+    </a>
+
+    <button class="container_button" id="aquarium" (click)="navigate($event)" > Akwarium </button>
+    <button class="container_button" id="lamps" (click)="navigate($event)"> Lampy </button>
+</nav>
