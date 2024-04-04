@@ -36,6 +36,9 @@ export class HomePageComponent implements OnInit{
         case "lamps":
           this.router.navigate(['/lamps/all/']);
           break;
+        case "devices":
+          this.router.navigate(['devices/']);
+          break;
       }
     },500)
   }

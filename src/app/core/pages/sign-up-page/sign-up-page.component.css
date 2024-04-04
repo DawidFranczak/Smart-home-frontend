@@ -68,3 +68,7 @@
     font-size: 16px;
     color: rgb(0, 194, 0)
 }
+
+app-form-field{
+    width: 80%;
+}

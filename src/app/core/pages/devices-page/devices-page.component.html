@@ -1,0 +1,18 @@
+<div class="container">
+    <app-back-arrow path="/home"/>
+
+    <a [routerLink]="[ 'add/' ]">
+        <svg viewBox="0 0 30 30" class="container__icon">
+            <path [attr.d]="icon" fill="#FFFFFF"></path>
+        </svg>
+    </a>
+
+    <app-search (input)="searchDevice($event)" />
+    
+    <section class="container__devices">
+        @for (device of devices; track device.id) {
+            <app-button extraClass="device-page" (click)="getDevice($event)" [id]="device.id" [text]="device.name"/>
+        }
+    </section>
+</div>
+

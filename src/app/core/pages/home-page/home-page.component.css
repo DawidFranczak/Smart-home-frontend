@@ -1,7 +1,7 @@
 .container {
     max-width: 800px;
     width: 80vw;
-    height: 70vh;
+    height: 90vh;
     min-height: 300px;
     display: flex;
     flex-direction: column;
@@ -33,11 +33,6 @@
 .settingsIcon{
     left: 30px; 
 }
-  
-.addIcon{
-    right: 30px;
-}
-
 
 .container_button {
     text-decoration: none;

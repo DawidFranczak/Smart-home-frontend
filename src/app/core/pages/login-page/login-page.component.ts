@@ -51,7 +51,6 @@ export class LoginPageComponent{
   }
 
   private customErrorHandler(res:any){
-    console.log(res)
     switch(res.status){
       case 0:
         this.message = "Serwer jest wyłączony";

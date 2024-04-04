@@ -73,6 +73,7 @@ export class AquariumPageComponent implements OnInit{
   }
 
   changeMode(){
+    this.mode=!this.mode
     const body = {
       mode: !this.mode
     }

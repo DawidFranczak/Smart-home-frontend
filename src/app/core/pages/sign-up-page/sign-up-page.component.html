@@ -3,7 +3,6 @@
     <h2 class="heading">Rejestracja</h2>
     <form [formGroup]="signUpForm" (submit)="onSubmit()" class="form">
         <app-form-field
-            class="form"
             iconPatch="{{iconPatch.email}}"
             type="email"
             name="email"
@@ -11,8 +10,7 @@
             (form)="getForm($event)"
             errorMessage="{{ERRORS?.email}}"
         /> 
-        <app-form-field
-            class="form"    
+        <app-form-field    
             iconPatch="{{iconPatch.password}}"
             type="password"
             name="password"
@@ -20,8 +18,7 @@
             (form)="getForm($event)"
             errorMessage="{{ERRORS?.password}}"
         /> 
-        <app-form-field
-            class="form"    
+        <app-form-field    
             iconPatch="{{iconPatch.password}}"
             type="password"
             name="password2"
@@ -29,8 +26,7 @@
             (form)="getForm($event)"
             errorMessage="{{ERRORS?.password2}}"
         /> 
-        <app-form-field
-            class="form"    
+        <app-form-field    
             iconPatch="{{iconPatch.password}}"
             type="password"
             name="pin"

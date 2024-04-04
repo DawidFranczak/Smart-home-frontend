@@ -1,0 +1,11 @@
+.error{
+    font-size: 15px;
+    width: 50vw;
+    color: rgba(255, 0, 0, 0.75);
+}
+
+.successful{
+    font-size: 15px;
+    width: 50vw;
+    color: greenyellow
+}

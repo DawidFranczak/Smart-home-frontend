@@ -1,0 +1,18 @@
+<div class="container">
+    @if(isAdding){
+        <div class="isLoading">
+            <p>Trwa dodawanie</p>
+            <div class="preloader"></div>
+        </div>
+    }
+    <app-back-arrow path="/devices"/>
+    <app-message [type]="messageType" [message]="message"/>
+    <section class="container__s1">
+        <app-form-field placeholder="Nazwa" (input)="getName($event)" />
+        <section class="container__s1__s2">
+            <app-add-device-select [name]="'Akwarium'" [value]="'aquarium'" (click)="getType($event)" />
+            <app-add-device-select [name]="'Schody'" [value]="'stairs'" (click)="getType($event)"/>
+        </section>
+    </section>
+    <button class="button" type="button" (click)="sendRequest()" >Zapisz</button>
+</div>

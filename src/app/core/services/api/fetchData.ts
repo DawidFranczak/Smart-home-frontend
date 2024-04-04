@@ -1,7 +1,8 @@
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Auth } from "../auth/auth";
 import { error } from "console";
+import { Observable } from "rxjs";
 
 
 @Injectable({
@@ -14,19 +15,27 @@ export class fetchData{
         private http: HttpClient,
 
     ){}
-
-    public fetchGet(url:string, useAutch=true){
-        return this.http.get(url,{
-            headers: {
-                "Authorization": useAutch ? this.auth.getToken():""
-            }
-        })
-    }
+    fetchGet(url: string, useAuth = true): Observable<any> {
+        // Utwórz nagłówek z niestandardowym nagłówkiem
+        let headers = new HttpHeaders();
+    
+        // Zmodyfikuj nagłówek User-Agent, aby uniknąć ostrzeżeń przeglądarki ngrok
+        headers = headers.set('User-Agent', 'CustomBrowser');
+    
+        // Dodaj nagłówek autoryzacji, jeśli wymagany
+        if (useAuth) {
+          headers = headers.set('Authorization', this.auth.getToken());
+        }
+    
+        // Wyślij żądanie HTTP z zmodyfikowanym nagłówkiem
+        return this.http.get(url, { headers });
+      }
     
     public fetchPost(url: string, body: any, useAutch=true){
         return this.http.post(url, body,{
                 headers: {
-                    "Authorization": useAutch ? this.auth.getToken():""
+                    "Authorization": useAutch ? this.auth.getToken():"",
+                    "ngrok-skip-browser-warning": "69420"
                 },
         })       
     }
@@ -35,6 +44,7 @@ export class fetchData{
         return this.http.put(url, body,{
             headers: {
                 "Authorization": this.auth.getToken(),
+                "ngrok-skip-browser-warning":"value"
             },
         })     
     }

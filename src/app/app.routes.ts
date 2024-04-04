@@ -4,6 +4,8 @@ import { SignUpPageComponent } from './core/pages/sign-up-page/sign-up-page.comp
 import { HomePageComponent } from './core/pages/home-page/home-page.component';
 import { SelectAquariumComponent } from './core/pages/select-aquarium/select-aquarium.component';
 import { AquariumPageComponent } from './core/pages/aquarium-page/aquarium-page.component';
+import { DevicesPageComponent } from './core/pages/devices-page/devices-page.component';
+import { AddDevicePageComponent } from './core/pages/add-device-page/add-device-page.component';
 
 export const routes: Routes = [
     {path: '', redirectTo:'login', pathMatch:"full"},
@@ -11,5 +13,7 @@ export const routes: Routes = [
     {path: 'sign-up', component: SignUpPageComponent},
     {path: 'home', component: HomePageComponent},
     {path: 'aquarium/all', component: SelectAquariumComponent},
-    {path: 'aquarium/settings/:id',component: AquariumPageComponent}
+    {path: 'aquarium/settings/:id', component: AquariumPageComponent},
+    {path: 'devices', component: DevicesPageComponent},
+    {path: 'devices/add', component: AddDevicePageComponent}
 ];
