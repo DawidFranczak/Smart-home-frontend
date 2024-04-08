@@ -1,4 +1,16 @@
 <div class="container">
+    @if(info){
+        <section class="container__info">
+            <app-back-arrow (click)="back()"/>
+            <div class="container__info__div">
+                <span>{{name}}</span>
+                <app-form-field (input)="setNewName($event)" placeholder="Nazwa"/>
+                <app-button (click)="changeName($event)" name="Zmień nazwę"/>
+                <app-message type="error" [message]="message"/>
+            </div>
+            <app-button (click)="deleteDevice()" extraClass="delete" name="Usuń"/>
+        </section>
+    }
     <app-back-arrow path="/home"/>
 
     <a [routerLink]="[ 'add/' ]">
@@ -11,7 +23,7 @@
     
     <section class="container__devices">
         @for (device of devices; track device.id) {
-            <app-button extraClass="device-page" (click)="getDevice($event)" [id]="device.id" [text]="device.name"/>
+            <app-button extraClass="device-page" (click)="getDevice($event)" [id]="device.id" [name]="device.name" [value]="device.type"/>
         }
     </section>
 </div>

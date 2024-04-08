@@ -77,8 +77,8 @@ app-message{
     width: 100%;
     height: 100%;
     border-radius: 25px;
-    background-color: rgba(0, 0, 0, 0.7); /* Przezroczyste tło z efektem rozmycia */
-    z-index: 9999; /* Wysoki indeks zaczepy, aby wyświetlać nad innymi elementami */
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 9999;
     display: flex;
     flex-direction: column;
     justify-content: center;

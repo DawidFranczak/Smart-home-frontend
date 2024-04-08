@@ -1,4 +1,5 @@
 export type TDevice = {
     id:number,
-    name:string
+    name:string,
+    type:string
 }

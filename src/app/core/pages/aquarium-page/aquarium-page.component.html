@@ -1,6 +1,6 @@
 <div class="container">
     <app-back-arrow path="/aquarium/all"/>
-    <p class="errorMessage">{{errorMessage}}</p>
+    <app-message type="error" [message]="errorMessage" />
     <input
         id="color"
         class=color
@@ -9,37 +9,43 @@
         (input)="changeColor($event)"
     />
     @if (mode) {
-    <p>Czas świecenia ledów</p>
-    <div class='times'>
-        <div>
-            <p>Od</p>
-            <input type="time" step="60" [(ngModel)]="ledStart" id="ledStart"/>
-        </div>
-        <div>
-            <p>Do</p>
-            <input type="time" step="60" [(ngModel)]="ledStop" id="ledStop"/>
-        </div>
-    </div>
-    <button class='button' (click)="saveLedTime()">Zapisz</button>
-    <p>Czas świecenia świetlówki</p>
-    <div class='times'>
-        <div>
-            <p>Od</p>
-            <input type="time" step="60" [(ngModel)]="fluoStart" id="fluoStart"/>
-        </div>
-        <div>
-            <p>Do</p>
-            <input type="time" step="60" [(ngModel)]="fluoStop" id="fluoStop"/>
-        </div>
-    </div>
-    <button class='button' (click)="saveFluoTime()">Zapisz</button> <br>
-    <button class='button' (click)="changeMode()">Wyłącz automat</button>
+        <section class="s1">
+            <p>Czas świecenia ledów</p>
+            <div class='times'>
+                <div>
+                    <p>Od</p>
+                    <input class="time" type="time" step="60" [(ngModel)]="ledStart" id="ledStart"/>
+                </div>
+                <div>
+                    <p>Do</p>
+                    <input class="time" type="time" step="60" [(ngModel)]="ledStop" id="ledStop"/>
+                </div>
+            </div>
+            <br/>
+            <button class='button' (click)="saveLedTime()">Zapisz</button>
+            <p>Czas świecenia świetlówki</p>
+            <div class='times'>
+                <div>
+                    <p>Od</p>
+                    <input class="time" type="time" step="60" [(ngModel)]="fluoStart" id="fluoStart"/>
+                </div>
+                <div>
+                    <p>Do</p>
+                    <input class="time" type="time" step="60" [(ngModel)]="fluoStop" id="fluoStop"/>
+                </div>
+            </div>
+            <br/>
+            <button class='button' (click)="saveFluoTime()">Zapisz</button>
+        </section>
+        <br/>
+        <button class='button' (click)="changeMode()">Wyłącz automat</button>
 
 } @else {
-
-    <button class='button' (click)="changeLedMode()">@if(ledMode){Wyłącz}@else {Włącz} ledy.</button>
-    <button class='button' (click)="changeFluoMode()">@if(fluoMode){Wyłącz}@else {Włącz} świetlówkę.</button>
-    <button class='button' (click)="changeMode()">Włącz automat</button>
+    <section class="container__buttons">
+        <button class='button' (click)="changeLedMode()">@if(ledMode){Wyłącz}@else {Włącz} ledy.</button>
+        <button class='button' (click)="changeFluoMode()">@if(fluoMode){Wyłącz}@else {Włącz} świetlówkę.</button>
+        <button class='button' (click)="changeMode()">Włącz automat</button>
+    </section>
 }
     
 </div>

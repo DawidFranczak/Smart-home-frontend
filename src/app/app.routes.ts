@@ -6,6 +6,7 @@ import { SelectAquariumComponent } from './core/pages/select-aquarium/select-aqu
 import { AquariumPageComponent } from './core/pages/aquarium-page/aquarium-page.component';
 import { DevicesPageComponent } from './core/pages/devices-page/devices-page.component';
 import { AddDevicePageComponent } from './core/pages/add-device-page/add-device-page.component';
+import { DeviceInfoPageComponent } from './core/pages/device-info-page/device-info-page.component';
 
 export const routes: Routes = [
     {path: '', redirectTo:'login', pathMatch:"full"},
@@ -15,5 +16,6 @@ export const routes: Routes = [
     {path: 'aquarium/all', component: SelectAquariumComponent},
     {path: 'aquarium/settings/:id', component: AquariumPageComponent},
     {path: 'devices', component: DevicesPageComponent},
-    {path: 'devices/add', component: AddDevicePageComponent}
+    {path: 'devices/add', component: AddDevicePageComponent},
+    {path: 'devices/:id/:text', component: DeviceInfoPageComponent}
 ];

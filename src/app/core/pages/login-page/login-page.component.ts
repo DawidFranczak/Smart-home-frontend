@@ -42,7 +42,8 @@ export class LoginPageComponent{
 
   public sendData(){
     const body: TLoginForm = this.loginForm.value as TLoginForm;
-
+    console.log(body)
+    console.log(URLS.login)
     this.fetch.fetchPost(URLS.login, body, false).subscribe({
       next:(res) => this.successfullyLogin(res),
       error:(res) => this.customErrorHandler(res),
@@ -51,6 +52,7 @@ export class LoginPageComponent{
   }
 
   private customErrorHandler(res:any){
+    console.log(res)
     switch(res.status){
       case 0:
         this.message = "Serwer jest wyłączony";
